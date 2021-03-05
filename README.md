@@ -2,6 +2,8 @@ This code is to create a Monet-inspired jeu de morpion (tic-tac-toe) in JavaScri
 Felicia Becerra
 3/1/2021
 
+Inspiration: "The Magpie" is one of my favorite Monet paintings, so I decided to make a themed Tic-Tac-Toe gameboard. 
+
 
 Color scheme:
 
