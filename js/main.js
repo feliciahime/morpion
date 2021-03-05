@@ -13,12 +13,34 @@ let box = document.querySelector(".MainContainer");
 		console.log('this is still x: ', x);
 		let d = document.createElement("div");
 		d.setAttribute("class", "Tile");
+		d.setAttribute("onClick", "playPiece()");
 		console.log('Creating each div');
 		box.appendChild(d);
 		x++;
 		}
 
-
+player_one = {
+	1: null,
+    2: null,
+    3: null,
+    4: null,
+    5: null,
+    6: null,
+    7: null,
+    8: null,
+    9: null
+}
+player_two = {
+	1: null,
+    2: null,
+    3: null,
+    4: null,
+    5: null,
+    6: null,
+    7: null,
+    8: null,
+    9: null
+}
 
 console.log(En_title, Fr_title, En_inst, Fr_inst);
 
@@ -44,11 +66,17 @@ function changeLanguage() {
 
 function playPiece() {
 	console.log('Function works!')
-// onClick="playPiece()";
-// let t = document.querySelector('Tile');
-// let play = document.createElement("img src="../img/magpie.png");
-// 
+	let t = document.querySelector(".Tile");
+	if ( turn % 2 == 0 ) {
+		console.log("It's player two's turn. (even)")
+		t.innerHTML = '<img class="Piece" src="./img/magpie-piece.png" />';
+	} else {
+		console.log("It's player one's turn. (odd)")
+		t.innerHTML = '<img class="Piece" src="./img/cross-piece.png" />';
+	}
+	turn++;
 
+// do I need to set the playpiece up (onclick events) with the Div to get it to register in the proper one?
 
 // let img = document.createElement('img'); 
 //	img.src = '../img/magpie.png';
