@@ -1,11 +1,24 @@
 console.log('Booting up the game!');
-console.log('Getting started.');
-
 let En_title = "Tic-Tac-Toe";
 let Fr_title = "Jeu de Morpion";
 let En_inst = "Click on a tile to play. The first player to set 3 tiles in a row wins.";
 let Fr_inst = "Cliquez sur une tuile pour jouer. Le premier joueur a aligner 3 symboles identiques gagne la partie.";
-let token = 0;
+let turn = 1;
+
+console.log("Let's start building divs.");
+let box = document.querySelector(".MainContainer");
+	let x = 1;
+	console.log('here is x: ', x);
+	while (x < 10) {
+		console.log('this is still x: ', x);
+		let d = document.createElement("div");
+		d.setAttribute("class", "Tile");
+		console.log('Creating each div');
+		box.appendChild(d);
+		x++;
+		}
+
+
 
 console.log(En_title, Fr_title, En_inst, Fr_inst);
 
