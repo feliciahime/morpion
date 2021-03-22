@@ -52,12 +52,16 @@ function playPiece(id) {
 	// let t = document.querySelector(choice);
 	if ( turn % 2 == 0 ) {
 		console.log("It's player two's turn. (even)")
-		choice.innerHTML = '<img class="Piece" src="./img/magpie-piece.png" />';
+		choice.innerHTML = '<img class="Piece" src="./img/magpie_piece.png" />';
+		player_two.push(id)
 	} else {
 		console.log("It's player one's turn. (odd)")
-		choice.innerHTML = '<img class="Piece" src="./img/cross-piece.png" />';
+		choice.innerHTML = '<img class="Piece" src="./img/cross_piece.png" />';
+		player_one.push(id)
 	}
 	turn++;
+	console.log('P1: ' + player_one + ' and ' + 'P2: ' + player_two);
+	// declareWinner();
 }
 
 
@@ -81,10 +85,18 @@ function playPiece(id) {
 // Possible wins: 123, 456, 789, 159, 357, 147, 258, 369
 // Check if winning by does player one array contain x y z OR ... can it be a list?
 
+function declareWinner() {
+	if (player_one || player_two === (('cell1', 'cell2', 'cell3') || ('cell4', 'cell5', 'cell6') || ('cell7', 'cell8', 'cell9') || ('cell1', 'cell5', 'cell9') || ('cell3', 'cell5', 'cell7') || ('cell1', 'cell4', 'cell7') || ('cell2', 'cell5', 'cell8') || ('cell3', 'cell6', 'cell9')) ) {	
+		console.log('We have a winner!');
+	} else {
+		console.log("Nobody has won yet.");
+	}
+}
+
 // function declareWinner () {
-// 	if (player_one || player_two includes ((1, 2, 3) || (4, 5, 6) || (7, 8, 9) || (1, 5, 9) || (3, 5, 7) || (1, 4, 7) || (2, 5, 8) || (3, 6, 9))) {
-// 		console.log('We have a winner!')
+// 	if player_one || player_two includes (('cell1', 'cell2', 'cell3') || ('cell4', 'cell5', 'cell6') || ('cell7', 'cell8', 'cell9') || ('cell1', 'cell5', 'cell9') || ('cell3', 'cell5', 'cell7') || ('cell1', 'cell4', 'cell7') || ('cell2', 'cell5', 'cell8') || ('cell3', 'cell6', 'cell9')) {
+// 		console.log('We have a winner!');
 // 	} else {
-// 		console.log("Nobody has won yet.")
+// 		console.log("Nobody has won yet.");
 // 	}
 // }
