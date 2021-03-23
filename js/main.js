@@ -65,9 +65,7 @@ function changeLanguage() {
 function playPiece(id) {
 	console.log("id:", id)
 	let choice = document.querySelector("#" + id);
-	if ( id in board !== null ) {
-		console.log('You cannot play there.');
-	} else {
+	if ( null === board[id] ) {
 		if ( turn % 2 == 0 ) {
 			console.log("It's player 2's turn.");
 			choice.innerHTML = '<img class="Piece" src="./img/magpie_piece.png" />';
@@ -80,6 +78,8 @@ function playPiece(id) {
 			player_one.push(id);
 			// declareWinner();
 		}
+	} else {
+		console.log('You cannot play there.');
 	}
 	turn++;
 	console.log('P1: ' + player_one + ' and ' + 'P2: ' + player_two);
