@@ -69,20 +69,20 @@ function playPiece(id) {
 		if ( turn % 2 == 0 ) {
 			console.log("It's player 2's turn.");
 			choice.innerHTML = '<img class="Piece" src="./img/magpie_piece.png" />';
-			player_two.push(id);
 			board[id] = 'magpie';
-			// declareWinner();
 		} else {
 			console.log("It's player 1's turn.")
 			choice.innerHTML = '<img class="Piece" src="./img/cross_piece.png" />';
-			player_one.push(id);
-			// declareWinner();
+			board[id] = 'cross';
+			
 		}
 	} else {
 		console.log('You cannot play there.');
+
 	}
 	turn++;
-	console.log('P1: ' + player_one + ' and ' + 'P2: ' + player_two);
+	console.log(board);
+	declareWinner();
 	
 }
 
@@ -107,14 +107,17 @@ function playPiece(id) {
 // Possible wins: 123, 456, 789, 159, 357, 147, 258, 369
 
 function declareWinner() {
-	if (player_one.includes (('b1' && 'b2' && 'b3') || ('b4' && 'b5' && 'b6') || ('b7' && 'b8' && 'b9') || ('b1' && 'b5' && 'b9') || ('b3' && 'b5' && 'b7') || ('b1' && 'b4' && 'b7') || ('b2' && 'b5' && 'b8') || ('b3' && 'b6'&& 'b9')) ) {
-		console.log('We have a winner!');
+	(console.log(board['b1'], board['b2'], board['b3']));
+	if ( board['b1'] && board['b2'] && board['b3'] === "magpie" ) {
+		console.log('Magpie wins!');
+	} else {
+		console.log("No one has won yet: ", board); }
+}
+
+		// (('b1' && 'b2' && 'b3') || ('b4' && 'b5' && 'b6') || ('b7' && 'b8' && 'b9') || ('b1' && 'b5' && 'b9') || ('b3' && 'b5' && 'b7') || ('b1' && 'b4' && 'b7') || ('b2' && 'b5' && 'b8') || ('b3' && 'b6'&& 'b9')) ) {
+
 	// } else if (player_two.includes (('cell1' && 'cell2' && 'cell3') || ('cell4' && 'cell5' && 'cell6') || ('cell7' && 'cell8' && 'cell9') || ('cell1' && 'cell5' && 'cell9') || ('cell3' && 'cell5' && 'cell7') || ('cell1' && 'cell4' && 'cell7') || ('cell2' && 'cell5' && 'cell8') || ('cell3' && 'cell6'&& 'cell9')) ) {	
 	// 	console.log('Player 2 is the winner!');
-	} else {
-		console.log("Player One has: " + player_one + ' and Player Two has: ' + player_two);
-	}
-}
 
 // function declareWinner () {
 // 	if player_one || player_two includes (('cell1', 'cell2', 'cell3') || ('cell4', 'cell5', 'cell6') || ('cell7', 'cell8', 'cell9') || ('cell1', 'cell5', 'cell9') || ('cell3', 'cell5', 'cell7') || ('cell1', 'cell4', 'cell7') || ('cell2', 'cell5', 'cell8') || ('cell3', 'cell6', 'cell9')) {
