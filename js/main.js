@@ -20,24 +20,18 @@ let board = {
 }
 
 
-// turn taking fills board array with either magpie or fence; 
-// then if board combo [ x === y === z], declare winner?
 console.log("Let's start building divs.");
 let box = document.querySelector(".MainContainer");
 	let x = 1;
 	console.log("It's Player ", x, "'s turn.");
 	while (x < 10) {
-		// console.log('this is still x: ', x);
 		let d = document.createElement("div");
 		d.setAttribute("class", "Tile");
 		d.setAttribute("id", "b" + x );
 		let tileID = 'playPiece("b' + x + '")';
-
-		//		d.setAttribute("id", x.toString());
-		//let tileID = 'playPiece(', x.toString() + "')";
 		console.log(tileID);
 		d.setAttribute("onClick", tileID);
-		// console.log('Creating each div');
+		console.log('Creating each div');
 		box.appendChild(d);
 		x++;
 		}
@@ -73,8 +67,7 @@ function playPiece(id) {
 		} else {
 			console.log("It's player 1's turn.")
 			choice.innerHTML = '<img class="Piece" src="./img/cross_piece.png" />';
-			board[id] = 'cross';
-			
+			board[id] = 'cross';			
 		}
 	} else {
 		console.log('You cannot play there.');
@@ -87,42 +80,12 @@ function playPiece(id) {
 }
 
 
-
-// do I need to set the playpiece up (onclick events) with the Div to get it to register in the proper one?
-
-// let img = document.createElement('img'); 
-//	img.src = '../img/magpie.png';
-// document.querySelector('Tile').appendChild(img);
-// console.log('Adding image!');
-//set up a counter. for even, use X file. For odd, use Y file. 
-// After each play, increase counter. (token++;)
-
-// 1   2   3
-
-// 4   5   6
-
-// 7   8   9
-	
-
-// Possible wins: 123, 456, 789, 159, 357, 147, 258, 369
-
 function declareWinner() {
 	(console.log(board['b1'], board['b2'], board['b3']));
-	if ( board['b1'] && board['b2'] && board['b3'] === "magpie" ) {
-		console.log('Magpie wins!');
-	} else {
-		console.log("No one has won yet: ", board); }
+	let winner = ((board['b1'] && board['b2'] && board['b3']) || (board['b4'] && board['b5'] && board['b6']) || (board['b7'] && board['b8'] && board['b9']) || (board['b1'] && board['b5'] && board['b9']) || (board['b3'] && board['b5'] && board['b7']) || (board['b1'] && board['b4'] && board['b7']) || (board['b2'] && board['b5'] && board['b8']) || (board['b3'] && board['b6'] && board['b9']))
+	if ('magpie' === winner ) {
+		console.log("Magpie wins!"); 
+	} else if ('cross' === winner ) {
+		console.log("Cross wins!");
+	}
 }
-
-		// (('b1' && 'b2' && 'b3') || ('b4' && 'b5' && 'b6') || ('b7' && 'b8' && 'b9') || ('b1' && 'b5' && 'b9') || ('b3' && 'b5' && 'b7') || ('b1' && 'b4' && 'b7') || ('b2' && 'b5' && 'b8') || ('b3' && 'b6'&& 'b9')) ) {
-
-	// } else if (player_two.includes (('cell1' && 'cell2' && 'cell3') || ('cell4' && 'cell5' && 'cell6') || ('cell7' && 'cell8' && 'cell9') || ('cell1' && 'cell5' && 'cell9') || ('cell3' && 'cell5' && 'cell7') || ('cell1' && 'cell4' && 'cell7') || ('cell2' && 'cell5' && 'cell8') || ('cell3' && 'cell6'&& 'cell9')) ) {	
-	// 	console.log('Player 2 is the winner!');
-
-// function declareWinner () {
-// 	if player_one || player_two includes (('cell1', 'cell2', 'cell3') || ('cell4', 'cell5', 'cell6') || ('cell7', 'cell8', 'cell9') || ('cell1', 'cell5', 'cell9') || ('cell3', 'cell5', 'cell7') || ('cell1', 'cell4', 'cell7') || ('cell2', 'cell5', 'cell8') || ('cell3', 'cell6', 'cell9')) {
-// 		console.log('We have a winner!');
-// 	} else {
-// 		console.log("Nobody has won yet.");
-// 	}
-// }

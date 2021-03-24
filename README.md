@@ -4,7 +4,7 @@ Felicia Becerra
 
 Inspiration: "The Magpie" is one of my favorite Monet paintings, so I decided to make a themed Tic-Tac-Toe gameboard. 
 
-To determine player one/player two turns, I created a turn counter variable to keep track of even/odd turns in order to determine which token piece to play.
+To determine player one/player two turns, I created a turn counter variable to keep track of even/odd turns in order to determine which token piece to play. I created a board object to keep track of the values of each tile (cross or magpie), determine if a tile could be played there (or if the space was already taken), and determine if a winning condition had been met.
 
 
 
