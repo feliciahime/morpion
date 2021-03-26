@@ -69,11 +69,12 @@ function playPiece(id) {
 			choice.innerHTML = '<img class="Piece" src="./img/cross_piece.png" />';
 			board[id] = 'cross';			
 		}
+		turn++;
 	} else {
 		console.log('You cannot play there.');
 
 	}
-	turn++;
+	
 	console.log(board);
 	declareWinner();
 	
